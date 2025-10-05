@@ -16,12 +16,21 @@
     </nav>
     <main>
       <h1 class="page-title"><strong>Contact me</strong></h1>
-      <div class="">
-        <div class="contact-me"></div>
-        <div class="contact-text">
-          <p>Contact me!</p>
-        </div>
-      </div>
+      <form id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Name" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email" />
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="message"
+          required
+        ></textarea>
+        <label for="comments">Comments</label>
+        <input type="submit" id="submit" name="submitbutton"/>
+
     </main>
     <footer class="footer">"© 2025 <Personal Website Name> | All Rights Reserved"</footer>
 
