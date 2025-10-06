@@ -11,12 +11,12 @@ html {
 }
 
 body {
-  background: var(--cg-grey);
+  background-color: #F9F1E8;
   position: relative;
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: monospace;
+  font-family: Georgia;
 }
 
 /* CSS for navigation */
@@ -60,16 +60,18 @@ body {
   text-decoration: none;
   letter-spacing: 2px;
 
-  font-family: monospace;
+  font-family: Georgia
 }
 
 .navbar a:hover {
   color: rgb(125, 62, 108);
-  text-decoration: underline;
+  padding: 3px 5px;
+  background-color: antiquewhite;
+  border-radius: 5px;
 }
 
 .navbar a:active {
-  color: var(--cg-blue);
+  color: rgb(147, 103, 116);
 }
 
 .logo a {
@@ -78,6 +80,20 @@ body {
 
 .logo a:hover {
   text-decoration: None;
+}
+
+p {
+  font-size: 16px;
+  color: #574144
+}
+
+ul {
+  font-size: 16px;
+  color: #574144
+}
+
+h2 {
+  font-size: 30px;
 }
 
 main {
@@ -91,59 +107,68 @@ main {
 .page-title {
   display: flex;
   justify-content: center;
-  font-size: 40px;
+  font-size: 50px;
   font-family: Georgia;
+  color: rgb(137, 5, 53);
 }
 
 /* CSS for portfolio grid */
 
-.project {
-  display: flex;
-  align-items: flex-start;
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px;
   justify-content: center;
-  gap: 60px;
-  padding: 60px;
-  min-height: 60vh;
+  flex-wrap: wrap; 
+  padding: 40px;
+  
 }
 
-.project-text {
-  flex: 0 0 30%;
-  /*position: sticky;*/
-  top: 20px;
-  margin-top: 100px;
-  margin-left: 100px;
+.project-card {
+  background-color: F9F1E8;
+  border: 5px solid rgb(137, 5, 53);
+  border-radius: 10px;
+  width: 500px; /* card width */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-images {
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.project-name {
+  color:#BF7E81
 }
 
 .project-images img {
-  width: 900px;
-  height: 500px;
-  border-radius: 20px;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* maintains shape */
   object-fit: cover;
+  border-radius: 20px;
+  transition: width 0.4s ease, height 0.4s ease;
+  cursor: pointer;
 }
 
-
+/* On hover, increase width/height */
+.project-images img:hover {
+  transform: scale(1.05); /* grow 5% bigger from center */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* optional depth */
+  transition: width 1s ease, height 1s ease;
+  z-index: 1; 
+}
 
 /* CSS for home page */
-
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-}
-
 
 .about-image-wrapper { 
     width: 300px;
@@ -152,7 +177,7 @@ main {
     overflow: hidden; 
     display: flex; 
     align-items: center; 
-    justify-content: center; 
+    justify-self: center;
 } 
 
 .about-image { 
@@ -169,35 +194,37 @@ main {
 }
 
 .about-text h2 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 10px;
+  color: rgb(137, 5, 53)
 }
 
 .about-text p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
 /* CSS for resume page */
 
 .button {
-  background-color: var(--cg-black);
+  background-color: rgb(137, 5, 53);
   border: none;
   color: var(--cg-white);
 
-  font-family: monospace;
+  font-family: Georgia;
+  font-size: 15px;
 
-  padding: 5px 7px;
+  padding: 7px 10px;
   text-align: center;
 
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .button:hover {
-  background-color: var(--cg-blue);
+  background-color: rgb(147, 103, 116);
 }
 
-.resume h2 {
+.resume {
   font-family: Georgia;
 }
 
@@ -207,6 +234,15 @@ main {
   margin-bottom: 70px;
 }
 
+.resume h1 {
+  color:  #BF7E81
+}
+
+.entry-title {
+  color: #574144
+
+}
+
 /* CSS for contact form */
 
 label {
@@ -214,6 +250,7 @@ label {
   margin-bottom: 8px;
   font-family: Georgia;
   font-weight: bold;
+  color: #BF7E81
 }
 
 input[type="text"],
@@ -226,6 +263,7 @@ textarea {
   border-radius: 4px;
   font-size: 16px;
   resize: none;
+  font-family: Georgia;
 }
 
 /* Add some spacing to the form */
@@ -240,10 +278,11 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--cg-black);
+  background-color: rgb(137, 5, 53);
   color: var(--cg-white);
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 2.5rem;
+  font-family: Georgia;
 }
